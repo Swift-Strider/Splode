@@ -1,0 +1,27 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "diamondstrider1/splode",
+    "description": "A UX and UI framework for pocketmine plugins.",
+    "type": "library",
+    "license": "Apache-2.0 License",
+    "authors": [
+        {
+            "name": "DiamondStrider1",
+            "email": "62265561+Swift-Strider@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "pocketmine/pocketmine-mp": "^4"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "1.4",
+        "friendsofphp/php-cs-fixer": "3.5",
+        "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "fmt": "php ./vendor/bin/php-cs-fixer fix",
+        "phpstan": "php ./vendor/bin/phpstan analyze src",
+        "baseline": "php ./vendor/bin/phpstan analyze src --generate-baseline",
+        "phpunit": "php ./vendor/bin/phpunit tests"
+    }
+}
