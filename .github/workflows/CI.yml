@@ -1,0 +1,52 @@
+name: CI
+on:
+  - push
+  - pull_request
+jobs:
+  phpstan:
+    name: PHPStan (Analysis)
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version:
+          - "8.0"
+    steps:
+      - uses: actions/checkout@v2
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{matrix.php-version}}
+      - name: phpstan analyze
+        run: |
+          composer install --ignore-platform-reqs
+          composer run -- phpstan
+  phpunit:
+    name: PhpUnit (Tests)
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version:
+          - "8.0"
+    steps:
+      - uses: actions/checkout@v2
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{matrix.php-version}}
+      - name: phpstan analyze
+        run: |
+          composer install --ignore-platform-reqs
+          composer run -- phpunit
+  style-check:
+    name: Style Check
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version:
+          - "8.0"
+    steps:
+      - uses: actions/checkout@v2
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{matrix.php-version}}
+      - run: |
+          composer install --ignore-platform-reqs
+          composer run -- fmt --dry-run --diff
