@@ -15,8 +15,8 @@
     },
     "require-dev": {
         "phpstan/phpstan": "1.4",
-        "friendsofphp/php-cs-fixer": "3.5",
-        "phpunit/phpunit": "^9.5"
+        "friendsofphp/php-cs-fixer": "3.6",
+        "phpunit/phpunit": "9.5"
     },
     "scripts": {
         "fmt": "php ./vendor/bin/php-cs-fixer fix",
